@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Js</title>
+	
+</head>
+<body ng-app="myApp">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+ <!--p ng-repeat="number in numbers">The Number is {{ number }}</p!-->
+ <div ng-controller="MyController">
+ 	<div><p ng-hide="isSpy">{{name}}</p>
+
+ 	<p ng-show="isSpy">{{age}}</p></div>
+ 	<div ng-repeat="emm in empl | limitTo:2 | orderBy:'salary'">
+ 		<p>Name is {{ emm.nam | uppercase}}</p>
+ 		<p>Salary is {{emm.salary | currency}}</p>
+ 		<p>Age : {{emm.ge}}</p>
+ 	</div>
+
+
+
+ </div>
+ 	
+</body>
+</html>
