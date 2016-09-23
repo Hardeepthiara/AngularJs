@@ -2,11 +2,26 @@
 <html>
 <head>
 	<title>Angular Js</title>
+	<style type="text/css">
+		.ng-invalid.ng-dirty{
+			border-color: red; 
+		}
+		.ng-valid.ng-dirty{
+			border-color: green;
+		}
+		input,textarea{
+			border: 2px solid;
+		}
+	</style>
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="review.js"></script>
 	
 </head>
 <body ng-app="myApp">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-	<script type="text/javascript" src="app.js"></script>
+
  <!--p ng-repeat="number in numbers">The Number is {{ number }}</p!-->
  <div ng-controller="MyController">
  	<div><p ng-hide="isSpy">{{name}}</p>
@@ -17,9 +32,43 @@
  		<p>Salary is {{emm.salary | currency}}</p>
  		<p>Age :  {{emm.ge}}</p>
  	</div>
+ 	<p>
+ 	<button ng-click="count=count+2">click</button>
+ 	<p> Count is {{count}}</p>
+</p>
+
+
+	<h2>Reviews</h2>
+	<div ng-repeat="review in reviews">
+		<div style="background-color: #EEEEEE">
+			<P>{{review.comments}}</P>
+			<p>{{review.by}}</p>
+		</div>
+		</div>
 
 
 
+		<div>
+		<h2>Reviews 2</h2>
+		
+		<form name="reviewForm" ng-submit="reviewForm.$valid && addReview()" novalidate="">
+		
+			<p>{{form.comments}}</p>
+			<p>{{form.by}}</p>
+
+			<label>Comments</label><br>
+			<textarea ng-model="form.comments" required=""></textarea><br>
+			<label>Author</label><br>
+			<input ng-model="form.by" type="email" name="" required=""><br>
+			<input type="submit" name="Add review"><br>
+
+			<p> Form valid? {{reviewForm.$valid}}</p>
+		</form>
+		</div>
+		<dir ng-include="'user.html'"></dir><br><br>
+		<userinfo></userinfo><br>
+	
+	
  </div>
  	
 </body>
